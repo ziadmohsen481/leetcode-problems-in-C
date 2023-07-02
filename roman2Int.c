@@ -1,8 +1,6 @@
-#include <stdio.h>
-// roman to integer functions
 int romanToInt(char * s)
 {
-    int i=0;
+int i=0;
     signed int  num[strlen(s)];
     while (s[i]!='\0')
     {
@@ -33,27 +31,21 @@ int romanToInt(char * s)
             break;
         }
         i++;
+        
+
     }
     int sum=0;
-    int S[15]={0};
     for(int j=0;j<strlen(s)-1;j++)
     {
-        
             if(num[j]<num[j+1])
             {
-                num[j]*=-1;
+                num[j]*=-1; // multiply by negative to be substracted in sum
             }
     }
     for(int k=0;k<strlen(s);k++)
     {
-        sum+=num[k];
+        sum+=num[k]; // taking sum of all elements
     }
     
     return sum;
-}
-int main()
-{
-    char s[5]="IIIV";
-   printf("%d\n",romanToInt(s)) ;
-    return 0;
 }
